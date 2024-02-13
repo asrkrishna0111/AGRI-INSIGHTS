@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Camera Integration For Crop Detection</title>
+</head>
+<body>
+    <video id="camera-feed" autoplay></video>
+    <script>
+        navigator.mediaDevices.getUserMedia({ video: true })
+            .then(function (stream) {
+                // Assign the camera stream to the video element
+                document.getElementById('camera-feed').srcObject = stream;
+            })
+            .catch(function (error) {
+                console.error('Error accessing the camera: ' + error);
+            });
+    </script>
+    <style>
+        #camera-feed {
+            width: 100%;
+            max-width: 640px; /* Adjust as needed */
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
+    
+</body>
+</html>
